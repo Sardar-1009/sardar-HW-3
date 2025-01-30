@@ -1,0 +1,51 @@
+/* MovieWatchlist.css */
+.watchlist {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  /* Style the form */
+  form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the input */
+  input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Style all buttons */
+  button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }
+  
+  /* Style the movie list */
+  .movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Style each movie item */
+  .movie-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Style the delete button */
+  .delete-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
