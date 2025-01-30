@@ -1,6 +1,6 @@
 import React,{ useState } from 'react'
 import './App.css'
-import MovieWatchlist from "./components/MovieWatchlist"
+import MovieWatchlist from "../src/Component/MovieWatchlist"
 
 function App() {
   return (
