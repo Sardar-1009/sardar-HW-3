@@ -24,7 +24,7 @@ input, button {
 }
 
 button {
-  background-color: #ccc; /* Серый цвет по умолчанию */
+  background-color: #ccc; 
   color: #000;
   cursor: pointer;
   border: none;
@@ -36,23 +36,23 @@ button:hover {
 }
 
 .like {
-  background-color: #ccc; /* Серый цвет по умолчанию */
+  background-color: #ccc; 
 }
 
 .dislike {
-  background-color: #ccc; /* Серый цвет по умолчанию */
+  background-color: #ccc;
 }
 
 .like.active {
-  background-color: #28a745; /* Зеленый цвет при выборе */
+  background-color: #28a745; 
 }
 
 .dislike.active {
-  background-color: #dc3545; /* Красный цвет при выборе */
+  background-color: #dc3545; 
 }
 
 .delete-button {
-  background-color: #dc3545; /* Красный для удаления */
+  background-color: #dc3545; 
   color: #fff;
 }
 
