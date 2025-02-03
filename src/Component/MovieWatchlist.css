@@ -1,51 +1,78 @@
-/* MovieWatchlist.css */
-.watchlist {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-  }
-  
-  /* Style the form */
-  form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  /* Style the input */
-  input {
-    flex: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Style all buttons */
-  button {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    background: white;
-    cursor: pointer;
-  }
-  
-  /* Style the movie list */
-  .movie-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  /* Style each movie item */
-  .movie-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Style the delete button */
-  .delete-button {
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+input, button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+button {
+  background-color: #ccc; /* Серый цвет по умолчанию */
+  color: #000;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.like {
+  background-color: #ccc; /* Серый цвет по умолчанию */
+}
+
+.dislike {
+  background-color: #ccc; /* Серый цвет по умолчанию */
+}
+
+.like.active {
+  background-color: #28a745; /* Зеленый цвет при выборе */
+}
+
+.dislike.active {
+  background-color: #dc3545; /* Красный цвет при выборе */
+}
+
+.delete-button {
+  background-color: #dc3545; /* Красный для удаления */
+  color: #fff;
+}
+
+.movie-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.watch-toggle {
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.watch-toggle:hover {
+  transform: scale(1.2);
+}

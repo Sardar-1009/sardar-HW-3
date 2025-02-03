@@ -3,52 +3,70 @@ import './MovieWatchlist.css';
 
 function MovieWatchlist() {
   const [movies, setMovies] = useState([]);
-  const [movieInput, setMovieInput] = useState('');
+  const [newMovie, setNewMovie] = useState('');
 
-  function addMovie(event) {
-    event.preventDefault();
-    
-    if (movieInput === '') {
-      return;
+  const addMovie = () => {
+    if (newMovie) {
+      setMovies([...movies, { name: newMovie, watched: false, like: null }]);
+      setNewMovie('');
     }
+  };
 
-    setMovies([...movies, movieInput]);
-    setMovieInput('');
-  }
+  const toggleWatched = (index) => {
+    const updatedMovies = [...movies];
+    updatedMovies[index].watched = !updatedMovies[index].watched;
+    updatedMovies[index].like = null;
+    setMovies(updatedMovies);
+  };
 
-  function deleteMovie(indexToDelete) {
-    const newMovies = movies.filter((_, index) => index !== indexToDelete);
-    setMovies(newMovies);
-  }
+  const handleLike = (index, value) => {
+    const updatedMovies = [...movies];
+    updatedMovies[index].like = value;
+    setMovies(updatedMovies);
+  };
+
+  const deleteMovie = (index) => {
+    setMovies(movies.filter((_, i) => i !== index));
+  };
 
   return (
-    <div className="watchlist">
-      {/* Form to add new movies */}
-      <form onSubmit={addMovie}>
-        <input
-          type="text"
-          value={movieInput}
-          onChange={(event) => setMovieInput(event.target.value)}
-          placeholder="Enter movie name..."
-        />
-        <button type="submit">Add</button>
-      </form>
-
-      {}
-      <h3>To watch list:</h3>
-      <div className="movie-list">
+    <div className="container">
+      <input
+        type="text"
+        value={newMovie}
+        onChange={(e) => setNewMovie(e.target.value)}
+        placeholder="Enter movie title"
+      />
+      <button onClick={addMovie}>Add</button>
+      <ul>
         {movies.map((movie, index) => (
-          <div key={index} className="movie-item">
-            <span>{movie}</span>
-            <button 
-              onClick={() => deleteMovie(index)}
-              className="delete-button"
-            >
-              ✕
+          <li key={index} className="movie-item">
+            <span onClick={() => toggleWatched(index)} className="watch-toggle">
+              {movie.watched ? '✅' : '⬜'}
+            </span>
+            {movie.name}
+            {movie.watched && (
+              <div>
+                <button
+                  className={`like ${movie.like === 'like' ? 'active' : ''}`}
+                  onClick={() => handleLike(index, 'like')}
+                >
+                  Like
+                </button>
+                <button
+                  className={`dislike ${movie.like === 'dislike' ? 'active' : ''}`}
+                  onClick={() => handleLike(index, 'dislike')}
+                >
+                  Dislike
+                </button>
+              </div>
+            )}
+            <button onClick={() => deleteMovie(index)} className="delete-button">
+              Delete
             </button>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
